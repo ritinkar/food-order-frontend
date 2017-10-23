@@ -6,7 +6,8 @@ import {  BrowserRouter as Router,  Route,  Link} from 'react-router-dom';
 import {AppBar, FlatButton} from 'material-ui';
 
 const defaultStyle = {
-  marginLeft: 20
+  marginLeft: 20,
+  button: {color: 'white'}
 };
 
 class Header extends Component {
@@ -14,8 +15,8 @@ class Header extends Component {
   render() {
     return (
       <header className="header">
-          <AppBar title="Mydabba" 
-          iconElementLeft={<Link to="/"><IconButton><ActionHome /></IconButton></Link>}
+          <AppBar title={<span >mydabba</span>}
+          iconElementLeft={<Link to="/"><IconButton style={defaultStyle.button}><ActionHome /></IconButton></Link>}
           iconElementRight={<Link to="/about"><FlatButton label="About" /></Link>}
           />
       </header>

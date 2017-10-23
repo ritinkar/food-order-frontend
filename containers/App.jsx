@@ -4,8 +4,10 @@ import { connect } from 'react-redux';
 import Header from '../components/Header';
 import Landing from '../components/Landing';
 import About from '../components/About';
+import VendorListContainer from './VendorListContainer';
+import VendorMenuContainer from './VendorMenuContainer';
 import * as TodoActions from '../actions/todos';
-import {  BrowserRouter as Router,  Route,  Link} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
 // For Customization Options, edit  or use
 // './src/material_ui_raw_theme_file.jsx' as a template.
@@ -17,16 +19,20 @@ class App extends Component {
     const { todos, actions } = this.props;
     return (
       <Router>
-      <div>
-        <MuiThemeProvider muiTheme={theme}>
-          <div>
-            <Header addTodo={actions.addTodo} />
-            <Route exact path="/" component={Landing} />
-            <Route exact path="/about" component={About} />
-            
-          </div>
-        </MuiThemeProvider>
-      </div>
+        <div>
+          <MuiThemeProvider muiTheme={theme}>
+            <div>
+              <Header addTodo={actions.addTodo} />
+              <Switch>
+                <Route exact path="/" component={Landing} />
+                <Route exact path="/about" component={About} />
+                <Route exact path="/dabbawalas" component={VendorListContainer} />
+                <Route path='/dabbawalas/:number' component={VendorMenuContainer}/>
+              </Switch>
+
+            </div>
+          </MuiThemeProvider>
+        </div>
       </Router>
     );
   }
