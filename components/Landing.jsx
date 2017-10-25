@@ -14,9 +14,10 @@ class Landing extends Component {
                 <div >
                     Lorem ipsum dolor sit amet, ne quem dolorum splendide nam. Cibo omnesque temporibus ea mel. Mel suas nihil nostro ea, persius molestie expetenda est cu. In habeo gubergren mei, etiam delicata an has, ea sed reque rationibus reprimique. Summo iracundia ut eam. Cum in putant postulant, cum falli urbanitas constituto ea.
                 </div>
+                <br/>
                 <div>
                     <Link to="/dabbawalas">
-                        <RaisedButton label="Start" primary={true} />
+                        <RaisedButton label="Start" primary={true} style={{margin: '0 auto'}}/>
                     </Link>
                 </div>
             </div>

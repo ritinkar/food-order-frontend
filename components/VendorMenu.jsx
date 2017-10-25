@@ -10,19 +10,20 @@ import {
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import OrderDialog from './OrderDialog';
 
 
 const defaultStyle = {
     margin: 20,
     textAlign: 'center',
     display: 'inline-block',
-    h1: {margin : 20}
+    h1: { margin: 20 }
 };
 
 /**
  * A table containing the list of vendors.
  */
-const VendorMenu = () => (
+const VendorMenu = (props) => (
     <div>
         <div>
             <h1 style={defaultStyle.h1}> Menu for INSERT NAME HERE </h1>
@@ -37,51 +38,15 @@ const VendorMenu = () => (
                     </TableRow>
                 </TableHeader>
                 <TableBody displayRowCheckbox={false}>
-                    <TableRow>
-                        <TableRowColumn>John Smith</TableRowColumn>
-                        <TableRowColumn>₹ 50</TableRowColumn>
-                        <TableRowColumn>
-                            <Link to="/about">
-                                <RaisedButton label="Order" primary={true} />
-                            </Link>
-                        </TableRowColumn>
-                    </TableRow>
-                    <TableRow>
-                        <TableRowColumn>Randal White</TableRowColumn>
-                        <TableRowColumn>₹ 50</TableRowColumn>
-                        <TableRowColumn>
-                            <Link to="/about">
-                                <RaisedButton label="Order" primary={true} />
-                            </Link>
-                        </TableRowColumn>
-                    </TableRow>
-                    <TableRow>
-                        <TableRowColumn>Stephanie Sanders</TableRowColumn>
-                        <TableRowColumn>₹ 40</TableRowColumn>
-                        <TableRowColumn>
-                            <Link to="/about">
-                                <RaisedButton label="Order" primary={true} />
-                            </Link>
-                        </TableRowColumn>
-                    </TableRow>
-                    <TableRow>
-                        <TableRowColumn>Steve Brown</TableRowColumn>
-                        <TableRowColumn>₹ 50</TableRowColumn>
-                        <TableRowColumn>
-                            <Link to="/about">
-                                <RaisedButton label="Order" primary={true} />
-                            </Link>
-                        </TableRowColumn>
-                    </TableRow>
-                    <TableRow>
-                        <TableRowColumn>Christopher Nolan</TableRowColumn>
-                        <TableRowColumn>₹ 50</TableRowColumn>
-                        <TableRowColumn>
-                            <Link to="/about">
-                                <RaisedButton label="Order" primary={true} />
-                            </Link>
-                        </TableRowColumn>
-                    </TableRow>
+                    {props.menuList.map((item, i) =>
+                        <TableRow key={i}>
+                            <TableRowColumn>{item.name}</TableRowColumn>
+                            <TableRowColumn>₹ {item.price}</TableRowColumn>
+                            <TableRowColumn>
+                                <OrderDialog order={item}/>
+                            </TableRowColumn>
+                        </TableRow>
+                    )}
                 </TableBody>
             </Table>
         </Paper>
