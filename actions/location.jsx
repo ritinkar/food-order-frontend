@@ -1,13 +1,24 @@
-import * as types from '../constants/ActionTypes';
+import { REQUEST_LOCATION, RECEIVE_LOCATION } from '../constants/ActionTypes';
 
 export function requestLocation() {
-    return { type: types.REQUEST_LOCATION };
+    return { type: REQUEST_LOCATION };
 }
 
 export function receiveLocation(json) {
     return {
         type: RECEIVE_LOCATION,
-        position: json.map(child => child.data),
-        recievedAt: Date.now()
+        position: json,
+        receivedAt: Date.now()
+    }
+}
+
+export function fetchLocation()
+{
+    return function (dispatch) {
+        dispatch(requestLocation());
+        let success = function (position){
+            dispatch(receiveLocation(position));
+        }
+        navigator.geolocation.getCurrentPosition(success);
     }
 }

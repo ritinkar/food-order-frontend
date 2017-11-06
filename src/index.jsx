@@ -3,6 +3,10 @@ import ReactDOM from "react-dom";
 import injectTapEventPlugin from "react-tap-event-plugin";
 import { Provider } from 'react-redux';
 
+import {fetchLocation} from '../actions/location';
+import {fetchVendors} from '../actions/vendors';
+import {requestVendors} from '../actions/vendors';
+
 import App from '../containers/App';
 import configureStore from '../store/configureStore';
 
@@ -23,3 +27,8 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 );
+
+
+store.dispatch(fetchLocation());
+//store.dispatch(fetchVendors());
+

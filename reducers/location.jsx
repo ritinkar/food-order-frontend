@@ -24,3 +24,4 @@ export default function location(state = initialState, action) {
     }
 
 }
+

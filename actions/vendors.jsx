@@ -1,4 +1,5 @@
 import * as types from '../constants/ActionTypes';
+import { backendURL } from '../constants/settings';
 
 
 //async
@@ -17,3 +18,13 @@ export function receiveVendors(json) {
 }
 
 
+export function fetchVendors()
+{
+    return function (dispatch) {
+        dispatch(requestVendors());
+
+        return fetch(backendURL)
+        .then(response => response.json())
+        .then(json => dispatch(receiveVendors( json)))
+    }
+}
