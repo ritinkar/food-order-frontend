@@ -1,16 +1,16 @@
 import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 import classnames from 'classnames';
 import VendorList from '../components/VendorList';
 
-//dummy variable please ignore
-const vl=[{name:"randall",distance:3,id:4},{name:"akira",distance:7,id:5},{name:"spiderman",distance:8,id:7}]
-
-class VendorListContainer extends Component {
-
-
-    render() {
-        return <VendorList vendorList={vl}  ></VendorList>;
-    }
+function mapStateToProps(state) {
+    return {
+        vendorList: state.vendorList.vendors
+    };
 }
+
+const VendorListContainer = connect(
+    mapStateToProps
+)(VendorList);
 
 export default VendorListContainer;

@@ -1,9 +1,11 @@
 import { REQUEST_LOCATION, RECEIVE_LOCATION } from '../constants/ActionTypes';
 
-export function location(state = {
+const initialState = {
     isFetching: false,
     position: {}
-}, action) {
+}
+
+export default function location(state = initialState, action) {
     switch (action.type) {
 
         case REQUEST_LOCATION:

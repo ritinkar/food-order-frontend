@@ -17,7 +17,3 @@ export function receiveVendors(json) {
 }
 
 
-//Synchronous
-export function requestMenu(name) {
-    return { type: types.REQUEST_MENU, name };
-}

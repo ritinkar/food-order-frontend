@@ -1,13 +1,12 @@
-import { REQUEST_VENDORS, REQUEST_MENU, RECEIVE_VENDORS } from '../constants/ActionTypes';
+import { REQUEST_VENDORS, RECEIVE_VENDORS } from '../constants/ActionTypes';
 
-export function vendorList(state = {
+const initialState=  {
     isFetching: false,
     vendors: []
-}, action) {
-    switch (action.type) {
+}
 
-        case REQUEST_MENU:
-            return Object.assign({}, state.vendors.filter(vendor => vendor.name === action.name))
+export default function vendorList(state = initialState, action) {
+    switch (action.type) {
         case REQUEST_VENDORS:
             return Object.assign({}, state, {
                 isFetching: true
