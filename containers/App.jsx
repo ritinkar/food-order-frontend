@@ -6,7 +6,6 @@ import Landing from '../components/Landing';
 import About from '../components/About';
 import VendorListContainer from './VendorListContainer';
 import VendorMenuContainer from './VendorMenuContainer';
-import * as TodoActions from '../actions/todos';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
 // For Customization Options, edit  or use
@@ -14,15 +13,14 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import theme from '../src/material_ui_raw_theme_file'
 
-class App extends Component {
+export default class App extends Component {
   render() {
-    const { todos, actions } = this.props;
     return (
       <Router>
         <div>
           <MuiThemeProvider muiTheme={theme}>
             <div>
-              <Header addTodo={actions.addTodo} />
+              <Header />
               <Switch>
                 <Route exact path="/" component={Landing} />
                 <Route exact path="/about" component={About} />
@@ -38,24 +36,7 @@ class App extends Component {
   }
 }
 
-App.propTypes = {
-  todos: PropTypes.array.isRequired,
-  actions: PropTypes.object.isRequired
-};
 
-function mapStateToProps(state) {
-  return {
-    todos: state.todos
-  };
-}
 
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(TodoActions, dispatch)
-  };
-}
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+
