@@ -29,6 +29,6 @@ ReactDOM.render(
 );
 
 
-//store.dispatch(fetchLocation());
+store.dispatch(fetchLocation());
 store.dispatch(fetchVendors());
 

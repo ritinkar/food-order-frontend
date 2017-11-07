@@ -25,7 +25,7 @@ export default class App extends Component {
                 <Route exact path="/" component={Landing} />
                 <Route exact path="/about" component={About} />
                 <Route exact path="/dabbawalas" component={VendorListContainer} />
-                <Route path='/dabbawalas/:number' component={VendorMenuContainer}/>
+                <Route path='/dabbawalas/:name' component={VendorMenuContainer}/>
               </Switch>
 
             </div>

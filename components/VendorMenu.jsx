@@ -26,7 +26,7 @@ const defaultStyle = {
 const VendorMenu = (props) => (
     <div>
         <div>
-            <h1 style={defaultStyle.h1}> Menu for INSERT NAME HERE </h1>
+            <h1 style={defaultStyle.h1}> Menu of {props.vendor.vendorname} </h1>
         </div>
         <Paper style={defaultStyle} zDepth={3} >
             <Table selectable={false}>
@@ -38,9 +38,9 @@ const VendorMenu = (props) => (
                     </TableRow>
                 </TableHeader>
                 <TableBody displayRowCheckbox={false}>
-                    {props.menuList.map((item, i) =>
+                    {props.vendor.menu.map((item, i) =>
                         <TableRow key={i}>
-                            <TableRowColumn>{item.vendorname}</TableRowColumn>
+                            <TableRowColumn>{item.item}</TableRowColumn>
                             <TableRowColumn>₹ {item.price}</TableRowColumn>
                             <TableRowColumn>
                                 <OrderDialog order={item}/>

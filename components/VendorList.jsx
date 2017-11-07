@@ -42,7 +42,7 @@ const VendorList = (props) => (
                         <TableRowColumn>{vendor.name}</TableRowColumn>
                         <TableRowColumn>{vendor.distance} km</TableRowColumn>
                         <TableRowColumn>
-                            <Link to="/dabbawalas/10">
+                            <Link to={"/dabbawalas/"+vendor.name}>
                                 <RaisedButton label="Click for menu" primary={true} />
                             </Link>
                         </TableRowColumn>

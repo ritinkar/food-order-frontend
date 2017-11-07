@@ -1,18 +1,20 @@
 import React, { Component, PropTypes } from 'react';
-import classnames from 'classnames';
+import { connect } from 'react-redux';
 import VendorMenu from '../components/VendorMenu';
 
 
-//dummy variable please ignore
-const vl=[{name:"paneer",price:140,id:4},{name:"chicken",price:150,id:5},{name:"aloo",price:100,id:7}]
-
-
-class VendorMenuContainer extends Component {
-
-
-    render() {
-        return <VendorMenu menuList={vl}></VendorMenu>;
-    }
+function mapStateToProps(state,ownProps) {
+    let vendor = state.vendorList.vendors.filter((vendor) => {
+        return vendor.vendorname===ownProps.match.params.name;
+    });
+    console.log(vendor[0]);
+    return {
+        vendor: vendor[0]
+    };
 }
+
+const VendorMenuContainer = connect(
+    mapStateToProps
+)(VendorMenu);
 
 export default VendorMenuContainer;
