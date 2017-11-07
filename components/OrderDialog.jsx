@@ -53,7 +53,7 @@ export default class OrderDialog extends React.Component {
                 Your order summary
                 <br/>
                 <br/>
-                Item: {this.props.order.name}
+                Item: {this.props.order.item}
                 <br/>
                 price: {this.props.order.price}
                 <br/>

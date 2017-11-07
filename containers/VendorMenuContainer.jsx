@@ -3,13 +3,16 @@ import { connect } from 'react-redux';
 import VendorMenu from '../components/VendorMenu';
 
 
-function mapStateToProps(state,ownProps) {
+
+
+
+function mapStateToProps(state, ownProps) {
     let vendor = state.vendorList.vendors.filter((vendor) => {
-        return vendor.vendorname===ownProps.match.params.name;
-    });
-    console.log(vendor[0]);
+        return vendor.vendorname === ownProps.match.params.name;
+    }).pop();
+    console.log(vendor);
     return {
-        vendor: vendor[0]
+        vendor: vendor
     };
 }
 
