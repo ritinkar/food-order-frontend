@@ -40,7 +40,7 @@ const VendorMenu = (props) => (
                 <TableBody displayRowCheckbox={false}>
                     {props.menuList.map((item, i) =>
                         <TableRow key={i}>
-                            <TableRowColumn>{item.name}</TableRowColumn>
+                            <TableRowColumn>{item.vendorname}</TableRowColumn>
                             <TableRowColumn>₹ {item.price}</TableRowColumn>
                             <TableRowColumn>
                                 <OrderDialog order={item}/>

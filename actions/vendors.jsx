@@ -1,10 +1,10 @@
-import * as types from '../constants/ActionTypes';
+import { REQUEST_VENDORS, RECEIVE_VENDORS } from '../constants/ActionTypes';
 import { backendURL } from '../constants/settings';
 
 
 //async
 export function requestVendors() {
-    return { type: types.REQUEST_VENDORS };
+    return { type: REQUEST_VENDORS };
 }
 
 
@@ -12,7 +12,7 @@ export function requestVendors() {
 export function receiveVendors(json) {
     return {
         type: RECEIVE_VENDORS,
-        vendors: json.map(child => child.data),
+        vendors: json,
         receivedAt: Date.now()
     }
 }
