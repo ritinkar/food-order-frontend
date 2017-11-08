@@ -4,7 +4,7 @@ import { spacing, getMuiTheme } from 'material-ui/styles';
 
 const rawBaseTheme = {
   ...spacing,
-  fontFamily: 'Roboto, sans-serif',
+  fontFamily: 'Comfortaa, cursive',
   palette: {
     primary1Color: Colors.cyan500,
     primary2Color: Colors.cyan700,
