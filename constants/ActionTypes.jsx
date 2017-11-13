@@ -6,6 +6,7 @@ export const RECEIVE_VENDORS = 'RECEIVE_VENDORS';
 //mydabba-location
 export const REQUEST_LOCATION = 'REQUEST_LOCATION';
 export const RECEIVE_LOCATION = 'RECEIVE_LOCATION';
+export const LOCATION_ERROR = 'LOCATION_ERROR';
 
 
 

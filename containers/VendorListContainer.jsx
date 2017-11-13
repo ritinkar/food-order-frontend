@@ -33,9 +33,9 @@ function mapStateToProps(state) {
         rVendor['distance'] = Math.round(num * 100) / 100;
         return rVendor
     });
-    console.log(vendorList);
     return {
-        vendorList: vendorList
+        vendorList: vendorList,
+        location:state.location
     };
 }
 

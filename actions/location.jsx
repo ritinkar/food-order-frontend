@@ -1,4 +1,4 @@
-import { REQUEST_LOCATION, RECEIVE_LOCATION } from '../constants/ActionTypes';
+import { REQUEST_LOCATION, RECEIVE_LOCATION, LOCATION_ERROR } from '../constants/ActionTypes';
 
 export function requestLocation() {
     return { type: REQUEST_LOCATION };
@@ -12,13 +12,18 @@ export function receiveLocation(json) {
     }
 }
 
-export function fetchLocation()
-{
+export function locationError() {
+    return {
+        type: LOCATION_ERROR
+    }
+}
+
+export function fetchLocation() {
     return function (dispatch) {
         dispatch(requestLocation());
-        let success = function (position){
+        let success = function (position) {
             dispatch(receiveLocation(position));
         }
-        navigator.geolocation.getCurrentPosition(success);
+        navigator.geolocation.getCurrentPosition(success, () => { dispatch(locationError()) });
     }
 }

@@ -1,7 +1,8 @@
-import { REQUEST_LOCATION, RECEIVE_LOCATION } from '../constants/ActionTypes';
+import { REQUEST_LOCATION, RECEIVE_LOCATION, LOCATION_ERROR } from '../constants/ActionTypes';
 
 const initialState = {
     isFetching: false,
+    error: false,
     position: {}
 }
 
@@ -17,6 +18,10 @@ export default function location(state = initialState, action) {
                 isFetching: false,
                 position: action.position,
                 lastUpdated: action.receivedAt
+            })
+        case LOCATION_ERROR:
+            return Object.assign({}, state, {
+                error: true
             })
         default:
             return state
