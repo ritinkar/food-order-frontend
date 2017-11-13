@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from "react";
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Header from '../components/Header';
-import Landing from '../components/Landing';
+import LandingContainer from './LandingContainer';
 import About from '../components/About';
 import VendorListContainer from './VendorListContainer';
 import VendorMenuContainer from './VendorMenuContainer';
@@ -62,7 +62,7 @@ export default class App extends Component {
                 mapStyles={mapStyles}
                 className="route-wrapper"
               >
-                <Route exact path="/" component={Landing} />
+                <Route exact path="/" component={LandingContainer} />
                 <Route exact path="/about" component={About} />
                 <Route exact path="/dabbawalas" component={VendorListContainer} />
                 <Route path='/dabbawalas/:name' component={VendorMenuContainer} />

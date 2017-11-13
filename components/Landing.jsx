@@ -1,6 +1,8 @@
 import React, { PropTypes, Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { RaisedButton } from 'material-ui';
+import { routeToAbout } from '../actions/routing';
+
 
 const defaultStyle = {
     margin: 20
@@ -16,9 +18,9 @@ class Landing extends Component {
                 </div>
                 <br/>
                 <div>
-                    <Link to="/dabbawalas">
-                        <RaisedButton label="Start" primary={true} style={{margin: '0 auto'}}/>
-                    </Link>
+                    
+                        <RaisedButton label="Start" onClick={this.props.onClick} primary={true} style={{margin: '0 auto'}}/>
+                    
                 </div>
             </div>
         );

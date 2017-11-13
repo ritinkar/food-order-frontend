@@ -32,7 +32,5 @@ ReactDOM.render(
 );
 
 
-store.dispatch(fetchLocation());
-store.dispatch(fetchVendors());
-store.dispatch(push('/about'));
+
 
