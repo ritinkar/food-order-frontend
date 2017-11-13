@@ -7,7 +7,9 @@ import About from '../components/About';
 import VendorListContainer from './VendorListContainer';
 import VendorMenuContainer from './VendorMenuContainer';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { ConnectedRouter } from 'react-router-redux';
 import { spring, AnimatedSwitch } from 'react-router-transition';
+import { history } from '../store/configureStore';
 
 // For Customization Options, edit  or use
 // './src/material_ui_raw_theme_file.jsx' as a template.
@@ -48,7 +50,7 @@ const bounceTransition = {
 export default class App extends Component {
   render() {
     return (
-      <Router>
+      <ConnectedRouter history={history}>
         <div>
           <MuiThemeProvider muiTheme={theme}>
             <div>
@@ -69,7 +71,7 @@ export default class App extends Component {
             </div>
           </MuiThemeProvider>
         </div>
-      </Router>
+      </ConnectedRouter>
     );
   }
 }

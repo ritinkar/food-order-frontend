@@ -3,12 +3,15 @@ import ReactDOM from "react-dom";
 import injectTapEventPlugin from "react-tap-event-plugin";
 import { Provider } from 'react-redux';
 
-import {fetchLocation} from '../actions/location';
-import {fetchVendors} from '../actions/vendors';
-import {requestVendors} from '../actions/vendors';
+import { fetchLocation } from '../actions/location';
+import { fetchVendors } from '../actions/vendors';
+import { requestVendors } from '../actions/vendors';
 
 import App from '../containers/App';
 import configureStore from '../store/configureStore';
+
+//TODELETE
+import { push } from 'react-router-redux';
 
 //Needed for React Developer Tools
 window.React = React;
@@ -31,4 +34,5 @@ ReactDOM.render(
 
 store.dispatch(fetchLocation());
 store.dispatch(fetchVendors());
+store.dispatch(push('/about'));
 
