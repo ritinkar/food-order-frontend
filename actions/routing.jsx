@@ -9,3 +9,9 @@ export function routeToDabbawalas() {
         dispatch(push('/dabbawalas'));
     }
 }
+
+export function handleOrder(){
+    return function (dispatch) {
+        dispatch(push('/success'));
+    }
+}

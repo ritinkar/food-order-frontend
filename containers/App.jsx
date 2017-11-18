@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Header from '../components/Header';
 import LandingContainer from './LandingContainer';
 import About from '../components/About';
+import OrderSuccess from '../components/OrderSuccess';
 import VendorListContainer from './VendorListContainer';
 import VendorMenuContainer from './VendorMenuContainer';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
@@ -64,6 +65,7 @@ export default class App extends Component {
               >
                 <Route exact path="/" component={LandingContainer} />
                 <Route exact path="/about" component={About} />
+                <Route exact path="/success" component={OrderSuccess} />
                 <Route exact path="/dabbawalas" component={VendorListContainer} />
                 <Route path='/dabbawalas/:name' component={VendorMenuContainer} />
               </AnimatedSwitch>

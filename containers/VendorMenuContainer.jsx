@@ -10,7 +10,6 @@ function mapStateToProps(state, ownProps) {
     let vendor = state.vendorList.vendors.filter((vendor) => {
         return vendor.vendorname === ownProps.match.params.name;
     }).pop();
-    console.log(vendor);
     return {
         vendor: vendor
     };

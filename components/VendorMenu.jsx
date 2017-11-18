@@ -10,7 +10,7 @@ import {
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import OrderDialog from './OrderDialog';
+import OrderDialogContainer from './OrderDialogContainer';
 
 
 const defaultStyle = {
@@ -43,7 +43,7 @@ const VendorMenu = (props) => (
                             <TableRowColumn>{item.item}</TableRowColumn>
                             <TableRowColumn>₹ {item.price}</TableRowColumn>
                             <TableRowColumn>
-                                <OrderDialog order={item}/>
+                                <OrderDialogContainer order={item}/>
                             </TableRowColumn>
                         </TableRow>
                     )}

@@ -12,9 +12,20 @@ import TextField from 'material-ui/TextField';
  */
 export default class OrderDialog extends React.Component {
     state = {
-        open: false
+        open: false,
+        name: "",
+        phone: ""
     };
-
+    handleNameChange = (event) => {
+        this.setState({
+            name: event.target.value
+        });
+    };
+    handlePhoneChange = (event) => {
+        this.setState({
+            phone: event.target.value
+        });
+    };
     handleOpen = () => {
         this.setState({ open: true });
     };
@@ -23,18 +34,23 @@ export default class OrderDialog extends React.Component {
         this.setState({ open: false });
     };
 
+    handleOrder = () => {
+        this.setState({ open :false},this.props.onClick);
+    }
+
     render() {
         const actions = [
             <FlatButton
                 label="Cancel"
                 primary={true}
+                 
                 onClick={this.handleClose}
             />,
             <FlatButton
                 label="Place order"
                 primary={true}
-                keyboardFocused={true}
-                onClick={this.handleClose}
+                
+                onClick={this.handleOrder}
             />
 
         ];
@@ -49,22 +65,26 @@ export default class OrderDialog extends React.Component {
                     open={this.state.open}
                     onRequestClose={this.handleClose}
                 >
-                <div style={{textAlign: 'right'}}>
-                Your order summary
-                <br/>
-                <br/>
-                Item: {this.props.order.item}
-                <br/>
-                price: {this.props.order.price}
-                <br/>
-                </div>
+                    <div style={{ textAlign: 'right' }}>
+                        Your order summary
+                <br />
+                        <br />
+                        Item: {this.props.order.item}
+                        <br />
+                        price: ₹ {this.props.order.price}
+                        <br />
+                    </div>
                     <TextField
                         hintText="Your name here"
                         floatingLabelText="Enter your name"
+                        value={this.state.name}
+                        onChange={this.handleNameChange}
                     /><br />
                     <TextField
                         hintText="Your phone number here"
                         floatingLabelText="Enter your phone number"
+                        value={this.state.phone}
+                        onChange={this.handlePhoneChange}
                     /><br />
                 </Dialog>
             </div>
