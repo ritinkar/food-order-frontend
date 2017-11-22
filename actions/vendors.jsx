@@ -23,7 +23,7 @@ export function fetchVendors()
     return function (dispatch) {
         dispatch(requestVendors());
 
-        return fetch(backendURL)
+        return fetch(backendURL+"vendors")
         .then(response => response.json())
         .then(json => dispatch(receiveVendors( json)))
     }

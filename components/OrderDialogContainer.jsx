@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import OrderDialog from './OrderDialog';
-import { handleOrder } from '../actions/routing';
+import { handleOrder, handleFailure } from '../actions/routing';
 
 
 
@@ -9,14 +9,20 @@ import { handleOrder } from '../actions/routing';
 
 const mapDispatchToProps = dispatch => {
     return {
-        onClick: () => {
+        success: () => {
             return dispatch(handleOrder());
+        },
+        failure: () => {
+            return dispatch(handleFailure());
         }
     }
 }
 
 function mapStateToProps(state, ownProps) {
-    return ownProps;
+    return {
+        location: state.location,
+        ownProps
+    };
 }
 
 const OrderDialogContainer = connect(

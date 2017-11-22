@@ -3,6 +3,7 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
+import { backendURL } from '../constants/settings';
 
 /**
  * Dialog with action buttons. The actions are passed in as an array of React objects,
@@ -35,7 +36,44 @@ export default class OrderDialog extends React.Component {
     };
 
     handleOrder = () => {
-        this.setState({ open :false},this.props.onClick);
+
+
+        let orderInit = {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            },
+            mode: 'cors',
+            cache: 'default',
+            body: JSON.stringify({
+                item: this.props.order.item,
+                vendor: this.props.vendor,
+                username: this.state.name,
+                userPhone: this.state.phone,
+                position: {
+                    latitude: this.props.location.position.coords.latitude.toString(),
+                    longitude: this.props.location.position.coords.longitude.toString()
+                }
+            })
+        };
+
+
+        console.log(orderInit);
+
+        fetch(backendURL + "order", orderInit).then((response) => {
+            if (response.ok) {
+                this.setState({ open: false }, this.props.success());
+            }
+            else {
+                this.setState({ open: false }, this.props.failure());
+            }
+        }).catch((error) => {
+            console.log('There has been a problem with your fetch operation: ' + error.message);
+        });
+
+
+
     }
 
     render() {
@@ -43,13 +81,13 @@ export default class OrderDialog extends React.Component {
             <FlatButton
                 label="Cancel"
                 primary={true}
-                 
+
                 onClick={this.handleClose}
             />,
             <FlatButton
                 label="Place order"
                 primary={true}
-                
+
                 onClick={this.handleOrder}
             />
 

@@ -28,14 +28,14 @@ function mapStateToProps(state) {
     vendorList = vendorList.map((vendor) => {
         let rVendor = {}
         rVendor['name'] = vendor.vendorname;
-        let num=getDistanceFromLatLonInKm(vendor.location.latitude,vendor.location.longitude,
-            state.location.position.coords.latitude,state.location.position.coords.longitude);
+        let num = getDistanceFromLatLonInKm(vendor.location.latitude, vendor.location.longitude,
+            state.location.position.coords.latitude, state.location.position.coords.longitude);
         rVendor['distance'] = Math.round(num * 100) / 100;
         return rVendor
     });
     return {
         vendorList: vendorList,
-        location:state.location
+        location: state.location
     };
 }
 

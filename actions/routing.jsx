@@ -15,3 +15,11 @@ export function handleOrder(){
         dispatch(push('/success'));
     }
 }
+
+
+export function handleFailure(){
+    return function (dispatch) {
+        dispatch(push('/failure'));
+    }
+}
+
