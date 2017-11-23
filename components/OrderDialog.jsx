@@ -12,19 +12,27 @@ import { backendURL } from '../constants/settings';
  * You can also close this dialog by clicking outside the dialog, or with the 'Esc' key.
  */
 export default class OrderDialog extends React.Component {
-    state = {
-        open: false,
-        name: "",
-        phone: ""
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            open: false,
+            name: "",
+            phone: "",
+            nameError: true,
+            phoneError: true
+        }
+      }
+    
     handleNameChange = (event) => {
         this.setState({
-            name: event.target.value
+            name: event.target.value,
+            nameError: event.target.value===""
         });
     };
     handlePhoneChange = (event) => {
         this.setState({
-            phone: event.target.value
+            phone: event.target.value,
+            phoneError: event.target.value===""
         });
     };
     handleOpen = () => {
@@ -87,7 +95,7 @@ export default class OrderDialog extends React.Component {
             <FlatButton
                 label="Place order"
                 primary={true}
-
+                disabled={this.state.nameError||this.state.phoneError}
                 onClick={this.handleOrder}
             />
 
@@ -115,12 +123,14 @@ export default class OrderDialog extends React.Component {
                     <TextField
                         hintText="Your name here"
                         floatingLabelText="Enter your name"
+                        errorText={this.state.nameError&&"This field is required"}
                         value={this.state.name}
                         onChange={this.handleNameChange}
                     /><br />
                     <TextField
                         hintText="Your phone number here"
                         floatingLabelText="Enter your phone number"
+                        errorText={this.state.phoneError&&"This field is required"}
                         value={this.state.phone}
                         onChange={this.handlePhoneChange}
                     /><br />
