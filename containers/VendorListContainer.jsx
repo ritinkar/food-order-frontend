@@ -34,7 +34,7 @@ function mapStateToProps(state) {
         return rVendor
     });
     return {
-        vendorList: vendorList,
+        vendorList: vendorList.sort((a,b)=>a.distance>b.distance),
         location: state.location
     };
 }
