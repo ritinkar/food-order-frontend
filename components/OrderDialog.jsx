@@ -19,7 +19,8 @@ export default class OrderDialog extends React.Component {
             name: "",
             phone: "",
             nameError: true,
-            phoneError: true
+            phoneError: true,
+            phoneErrorText:"This field is required"
         }
       }
     
@@ -32,7 +33,8 @@ export default class OrderDialog extends React.Component {
     handlePhoneChange = (event) => {
         this.setState({
             phone: event.target.value,
-            phoneError: event.target.value===""
+            phoneError: event.target.value===""||event.target.value.match(/^[0-9]+$/) == null,
+            phoneErrorText:(event.target.value=="")?"This field is required":"Phone number must contain only numbers"
         });
     };
     handleOpen = () => {
@@ -130,7 +132,7 @@ export default class OrderDialog extends React.Component {
                     <TextField
                         hintText="Your phone number here"
                         floatingLabelText="Enter your phone number"
-                        errorText={this.state.phoneError&&"This field is required"}
+                        errorText={this.state.phoneError&&this.state.phoneErrorText}
                         value={this.state.phone}
                         onChange={this.handlePhoneChange}
                     /><br />
