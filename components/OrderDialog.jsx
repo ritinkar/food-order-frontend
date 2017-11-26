@@ -20,21 +20,21 @@ export default class OrderDialog extends React.Component {
             phone: "",
             nameError: true,
             phoneError: true,
-            phoneErrorText:"This field is required"
+            phoneErrorText: "This field is required"
         }
-      }
-    
+    }
+
     handleNameChange = (event) => {
         this.setState({
             name: event.target.value,
-            nameError: event.target.value===""
+            nameError: event.target.value === ""
         });
     };
     handlePhoneChange = (event) => {
         this.setState({
             phone: event.target.value,
-            phoneError: event.target.value===""||event.target.value.match(/^[0-9]+$/) == null,
-            phoneErrorText:(event.target.value=="")?"This field is required":"Phone number must contain only numbers"
+            phoneError: event.target.value === "" || event.target.value.match(/^[0-9]+$/) == null,
+            phoneErrorText: (event.target.value === "") ? "This field is required" : "Phone number must contain only numbers"
         });
     };
     handleOpen = () => {
@@ -59,6 +59,7 @@ export default class OrderDialog extends React.Component {
             body: JSON.stringify({
                 item: this.props.order.item,
                 vendor: this.props.vendor,
+                vendorID: this.props.vendorID,
                 username: this.state.name,
                 userPhone: this.state.phone,
                 position: {
@@ -97,7 +98,7 @@ export default class OrderDialog extends React.Component {
             <FlatButton
                 label="Place order"
                 primary={true}
-                disabled={this.state.nameError||this.state.phoneError}
+                disabled={this.state.nameError || this.state.phoneError}
                 onClick={this.handleOrder}
             />
 
@@ -125,14 +126,14 @@ export default class OrderDialog extends React.Component {
                     <TextField
                         hintText="Your name here"
                         floatingLabelText="Enter your name"
-                        errorText={this.state.nameError&&"This field is required"}
+                        errorText={this.state.nameError && "This field is required"}
                         value={this.state.name}
                         onChange={this.handleNameChange}
                     /><br />
                     <TextField
                         hintText="Your phone number here"
                         floatingLabelText="Enter your phone number"
-                        errorText={this.state.phoneError&&this.state.phoneErrorText}
+                        errorText={this.state.phoneError && this.state.phoneErrorText}
                         value={this.state.phone}
                         onChange={this.handlePhoneChange}
                     /><br />
