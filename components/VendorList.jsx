@@ -16,7 +16,8 @@ const defaultStyle = {
     margin: 20,
     textAlign: 'center',
     display: 'inline-block',
-    h1: { margin: 20 }
+    h1: { margin: 20 },
+    overflow: 'auto'
 };
 
 /**

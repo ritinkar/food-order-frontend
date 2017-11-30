@@ -111,12 +111,13 @@ export default class OrderDialog extends React.Component {
                     title="Please enter your Name and Phone Number"
                     actions={actions}
                     modal={false}
+                    autoScrollBodyContent={true}
                     open={this.state.open}
                     onRequestClose={this.handleClose}
                 >
                     <div style={{ textAlign: 'right' }}>
                         Your order summary
-                <br />
+                        <br />
                         <br />
                         Item: {this.props.order.item}
                         <br />
@@ -129,14 +130,15 @@ export default class OrderDialog extends React.Component {
                         errorText={this.state.nameError && "This field is required"}
                         value={this.state.name}
                         onChange={this.handleNameChange}
-                    /><br />
+                    /> <br />
                     <TextField
                         hintText="Your phone number here"
                         floatingLabelText="Enter your phone number"
                         errorText={this.state.phoneError && this.state.phoneErrorText}
                         value={this.state.phone}
                         onChange={this.handlePhoneChange}
-                    /><br />
+                    />
+                    <br />
                 </Dialog>
             </div>
         );

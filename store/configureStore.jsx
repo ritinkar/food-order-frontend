@@ -22,7 +22,7 @@ export default function configureStore(initialState) {
     rootReducer,
     applyMiddleware(
       thunkMiddleware, // lets us dispatch() functions
-      loggerMiddleware, // neat middleware that logs actions
+      //loggerMiddleware, // neat middleware that logs actions
       routerMiddleware // middleware that connects react router to redux
     ),
     initialState,

@@ -43,7 +43,7 @@ const VendorMenu = (props) => (
                             <TableRowColumn>{item.item}</TableRowColumn>
                             <TableRowColumn>₹ {item.price}</TableRowColumn>
                             <TableRowColumn>
-                                <OrderDialogContainer order={item} vendor={props.vendor.vendorname} vendorID={props.vendor._id}/>
+                                <OrderDialogContainer order={item} vendor={props.vendor.vendorname} vendorID={props.vendor._id} />
                             </TableRowColumn>
                         </TableRow>
                     )}
