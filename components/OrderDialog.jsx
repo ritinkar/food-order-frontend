@@ -70,8 +70,6 @@ export default class OrderDialog extends React.Component {
         };
 
 
-        console.log(orderInit);
-
         fetch(backendURL + "order", orderInit).then((response) => {
             if (response.ok) {
                 this.setState({ open: false }, this.props.success());
