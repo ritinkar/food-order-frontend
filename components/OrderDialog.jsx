@@ -133,6 +133,7 @@ export default class OrderDialog extends React.Component {
                     /> <br />
                     <TextField
                         hintText="Your phone number here"
+                        type={"tel"}
                         floatingLabelText="Enter your phone number"
                         errorText={this.state.phoneError && this.state.phoneErrorText}
                         value={this.state.phone}

@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
 import VendorList from '../components/VendorList';
@@ -35,7 +35,7 @@ function mapStateToProps(state) {
         return rVendor
     });
     return {
-        vendorList: vendorList.sort((a,b)=>a.distance>b.distance),
+        vendorList: vendorList.sort((a, b) => a.distance > b.distance),
         location: state.location
     };
 }
