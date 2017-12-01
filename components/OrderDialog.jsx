@@ -114,6 +114,7 @@ export default class OrderDialog extends React.Component {
                     autoScrollBodyContent={true}
                     open={this.state.open}
                     onRequestClose={this.handleClose}
+                    style={{ position: 'fixed', overflow: 'auto' }}
                 >
                     <div style={{ textAlign: 'right' }}>
                         Your order summary

@@ -24,7 +24,7 @@ const defaultStyle = {
  * A table containing the list of vendors.
  */
 const VendorMenu = (props) => (
-    <div>
+    <div style={{position:'sticky',overflow:'auto'}}>
         <div>
             <h1 style={defaultStyle.h1}> Menu of {props.vendor.vendorname} </h1>
         </div>
